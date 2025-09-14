@@ -1,0 +1,38 @@
+   <html th:replace="base::layout(~{::section})">
+	<head>
+		
+   </head>
+   <body >
+	<section style="background-color:#C9E6F0;">
+		<div class="row " >
+			<div class="col-sm-5 py-5 mx-auto  rounded-4 m-5" style="backgroun-color:#C6E7FF; box-shadow: 0px 2px 12px gray;">
+			<div class="text-center">
+			<img alt="image not found.." src="images/logo.png" class="w-25"style="background-color:white; border:5px solid orange; border-radius:50%;">
+			<h3 style="text-align:center; " class="py-3 fw-bold">Student Login</h3>
+		</div>
+		
+		<div class="px-5">
+			<div th:if="${msg}" class="alert alert-warning alert-dismissible fade show" role="alert">
+				<span th:text="${msg}"></span>
+				<button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<form method="post" th:object="${dto}">
+				<input  type="number" th:field="${dto.enrollmentno}" class="form-control rounded-5 my-2" placeholder="Enter your User Id">
+			
+				<input type="password"th:field="${dto.password}" class="form-control rounded-5 my-2" placeholder="Enter Your Password">
+				
+				<button type="submit" class="btn btn-primary rounded-5 my-2 w-100">login</button>
+				<label>
+				      <input type="checkbox" checked="checked" name="remember"> Remember me
+				    </label>
+			</form>
+		</div>
+		<div class="text-center mt-5">
+			<a href="#">Forgate Password?</a>
+		</div>
+		</div>
+		</div>
+	</section>	
+   </body>
+</html>	
+

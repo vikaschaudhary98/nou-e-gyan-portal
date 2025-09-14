@@ -1,0 +1,38 @@
+<html th:replace="base::layout(~{::section})">
+
+<head>
+
+</head>
+
+<body>
+    <section style="background: linear-gradient(to bottom right, #ff966d, #fa538d, #89379c);">
+
+        <div class="row ">
+            <div class="col-sm-3  col-lg-5 py-5 mx-auto  rounded-4 m-5" style=" box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%);">
+                <div class="text-center">
+                    <img alt="image not found.." src="images/logo.png" class="w-25 bg-white"
+                        style="border:5px solid orange; border-radius:50%;">
+                    <h3 style="text-align:center;" class="py-3 fw-bold">Admin Login</h3>
+                </div>
+                <div class="px-5">
+                    <div th:if="${msg}" class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <span th:text="${msg}"></span>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <form method="post" th:object="${dto}">
+                        <input type="text" th:field="${dto.userid}" class="form-control rounded-5 my-2"
+                            placeholder="Enter your User Id">
+                        <input type="password" th:field="${dto.password}" class="form-control rounded-5 my-2"
+                            placeholder="Enter Your Password">
+                        <button type="submit" class="btn btn-primary rounded-5 my-2 w-100">login</button>
+                    </form>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" style="color:white;">Forgate Password?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

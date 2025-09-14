@@ -1,0 +1,54 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+	<head></head>
+	<body>
+		<section>
+			<h1 class="text-center text-primary" > Manage StudyMaterial</h1>
+
+			<div class="row">
+							<div class="col-sm-12 mx-auto">
+								<table id="myTable" class="table table-bordered display">
+								    <thead class="text-center">
+								        <tr>
+											
+								            <th class="text-center">Branch</th>
+											<th class="text-center">Course</th>
+											<th class="text-center">Year</th>
+											<th class="text-center">File Name</th>
+											<th class="text-center">subject</th>
+											<th class="text-center">topic</th>
+											<th class="text-center">Material type</th>
+											<th class="text-center">Posteddate</th>
+											<th class="text-center">Delete</th>
+								        </tr>
+								    </thead>
+								    <tbody class="text-center">
+								        <tr  th:each="ms:${mslist}">
+											<td th:text="${ms.branch}"></td>
+											<td th:text="${ms.course}"></td>
+											<td th:text="${ms.year}"></td>
+								            <td>
+												<a th:href="@{'/mat/'+${ms.filename}}" >
+													<span th:text="${ms.filename}"></span>
+												</a>
+											</td>
+											<td th:text="${ms.subject}" class="text-center"></td>
+											<td th:text="${ms.topic}"></td>
+											
+											<td th:text="${ms.materialtype}"></td>
+											<td th:text="${ms.posteddate}"></td>
+											<td>
+								<a th:href="@{deletestudymaterial(id=${ms.id})}" class="text-decoration-none">
+								<button class="btn btn-danger" onclick="return confirm('are you sure want to delete?')">Delete</button>
+																																				</a>
+											</td>
+								            <td>
+												<a href="#">view more</a>
+											</td>
+								        </tr>
+								    </tbody>
+								</table>
+							</div>
+						</div>
+		</section>
+	</body>
+</html>

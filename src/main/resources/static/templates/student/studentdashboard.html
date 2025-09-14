@@ -1,0 +1,59 @@
+<html th:replace="~{student/studentbase::layout(~{::section})}">
+	<head>
+
+	</head>
+	
+	<body>
+		<section>
+			<div class="row">
+			 
+			 <div class="col-sm-5 col-lg-10 mx-auto shadow  bg-opacity-50 mt-5" style=" background-color:#FF7F3E;">
+				<h2 class="text-center fw-bold text-dark mt-4"> Student Dashboard</h2>
+			 <div class="row">
+			     <div class="col-md-5">
+			         <div class="text-center" th:if="${stdinfo.profilepic}">
+			             <img th:src="@{'/profile/'+${stdinfo.profilepic}}" height="150px" width="150px" class="rounded-circle mt-3 mb-2" alt="image not found">
+			         </div>
+			         <div  class="text-center" th:unless="${stdinfo.profilepic}">
+			             <img src="../images/image.jpg" height="150px" width="150px" class="rounded-circle mt-3 mb-2" alt="image not found">
+			         </div>
+			         <div class="p-3">
+			             <form method="post" class="px-4"  style="display:flex; justify-content:space-around;" enctype="multipart/form-data">
+			                 <input type="file" name="file" class="form-control w-50 mx-1" required="required">
+			                 <button type="submit" class="btn btn-primary w-25 mx-1">Upload pic</button>
+			             </form>
+			         </div>
+			     </div>
+				 <div class="col-md-7">
+				        <div class="d-flex justify-content-center align-items-center mt-5" >
+				            <table style="color:black; bprder:1px solid black;">
+				                <tr>
+				                    <th>Full Name:</th>
+				                    <td th:text="${stdinfo.name}"></td>
+				                </tr>
+				                <tr>
+				                    <th>Enrollment No.</th>
+				                    <td th:text="${stdinfo.enrollmentno}"></td>
+				                </tr>
+				                <tr>
+				                    <th>Mobile No.</th>
+				                    <td th:text="${stdinfo.contactno}"></td>
+				                </tr>
+								<tr>
+								  <th>Email Id.</th>
+							      <td th:text="${stdinfo.Emailaddress}"></td>
+                                   </tr>
+				                <tr>
+				                    <th>Branch</th>
+				                    <td th:text="${stdinfo.branch}"></td>
+				                </tr>
+				            </table>
+				        </div>
+				    </div>
+			 </div>
+			 </div>
+			 
+			</div>
+		</section>
+	</body>
+</html>
